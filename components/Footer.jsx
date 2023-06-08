@@ -5,7 +5,7 @@ import Image from "next/image"
 
 const Footer = () => {
   return (
-    <div className="h-[120px] lg:h-[80px] w-full bg-[#eaebec] text-[#333] fixed bottom-0 flex flex-col lg:flex-row gap-2 items-center justify-center">
+    <div className="h-[120px] lg:h-[80px] w-full bg-[#eaebec] text-[#333]  flex flex-col lg:flex-row gap-2 items-center justify-center">
       <h1 className="text-xs font-light ">
         2023 BECU. ALL RIGHTS RESERVED. FEDERALLY INSURED BY NCUA. EQUAL HOUSING
         OPPORTUNITY LENDER
