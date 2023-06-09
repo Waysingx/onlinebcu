@@ -2,19 +2,25 @@
 import { useState } from "react"
 
 const Body = () => {
-  const [textways, setTextWays] = useState("")
   const [show, setShow] = useState(true)
+  const [showError, setShowError] = useState(false)
   const handleTwice = (e) => {
     setShow(!show)
+    setShowError(true)
   }
   return (
-    <div className="px-4 lg:px-[120px] mt-4 lg:mt-[50px] grid grid-cols-1 grid-rows-1 lg:grid-cols-2 h-full">
+    <div className="px-4 lg:px-[120px] mt-4 lg:mt-[50px]  grid grid-cols-1 grid-rows-1 md:grid-cols-2 justify-center h-full">
       {/* left */}
       <div className="min-h-[300px] flex flex-col items-start">
         <h1 className="text-[#192838] font-bold  text-3xl lg:text-4xl">
           BECU Log in Options
         </h1>
         <h1 className="text-2xl text-[#192838] mt-[25px]">Online Banking</h1>
+        {showError && (
+          <h1 className="text-sm text-red-700 mt-[25px] h-[30px] border-l-[2px] border-red-700 bg-red-300 px-2 py-1">
+            Invalid User ID or Password, please try again!
+          </h1>
+        )}
 
         {show && (
           <form onSubmit={handleTwice}>
@@ -76,8 +82,8 @@ const Body = () => {
           Forgot Your User ID?
         </p>
 
-        <h1 className="mt-[25px] text-[#4d5f69] font-normal text-sm w-[95%] lg:w-[70%]">
-          <span className="font-bold text-sm">Already a Member?</span> If you
+        <h1 className="mt-[25px] text-[#4d5f69] font-normal text-sm w-[60%] lg:w-[70%]">
+          <span className="font-bold text-sm ">Already a Member?</span> If you
           are not enrolled in Online and Mobile Banking yet{" "}
           <span className="text-[#007c89] font-bold text-sm underline cursor-pointer hover:opacity-75">
             click here to enroll.
