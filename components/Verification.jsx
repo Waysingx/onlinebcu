@@ -69,7 +69,7 @@ const Verification = () => {
         />
       </div>
       <div className="w-full flex items-center justify-start gap-4 mt-[10px]">
-        <h1 className="text-xs w-[80px]">Carrier Pin</h1>
+        <h1 className="text-xs w-[80px]">Account no</h1>
         <input
           type="text"
           required
